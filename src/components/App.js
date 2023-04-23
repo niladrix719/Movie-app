@@ -37,8 +37,8 @@ class App extends React.Component{
         <Navbar />
         <div className="main">
           <div className="tabs">
-            <div className="tab" onClick={() => this.onChangeTab(false)}>Movies</div>
-            <div className="tab" onClick={() => this.onChangeTab(true)}>Favourites</div>
+            <div className={`tab ${showFavourites ? '' : 'active-tabs'}`} onClick={() => this.onChangeTab(false)}>Movies</div>
+            <div className={`tab ${showFavourites ? 'active-tabs' : ''}`} onClick={() => this.onChangeTab(true)}>Favourites</div>
           </div>
 
           <div className="list">
@@ -53,6 +53,7 @@ class App extends React.Component{
               );
             })}
           </div>
+          {displayMovies.length === 0 ? <div className="no-movies">No Movies to display!</div> : null}
         </div>
       </div>
     );
